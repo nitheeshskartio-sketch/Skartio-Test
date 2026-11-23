@@ -3,51 +3,77 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Skartio Test connects the Skartio platform with Google Merchant Center for product catalogue integration testing.">
+<meta name="robots" content="index,follow">
 <title>Home | Skartio Test</title>
-<meta name="description" content="Skartio Test demonstration website for API testing.">
 <style>
-:root{--navy:#14213d;--blue:#2563eb;--ink:#202938;--muted:#667085;--line:#e6eaf0;--bg:#f7f9fc}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
-header{background:#fff;border-bottom:1px solid var(--line)}.nav{max-width:1080px;margin:auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{font-size:21px;font-weight:700;color:var(--navy);text-decoration:none}.brand span{color:var(--blue)}
-nav{display:flex;gap:22px;flex-wrap:wrap}nav a{color:#344054;text-decoration:none;font-size:14px}nav a:hover{color:var(--blue)}
-main{max-width:1080px;margin:54px auto;padding:0 24px}.hero{background:#fff;border:1px solid var(--line);border-radius:18px;padding:58px 52px}
-.eyebrow{color:var(--blue);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
-h1{font-size:42px;line-height:1.15;color:var(--navy);margin:14px 0}h2{color:var(--navy);margin-top:30px}
-.lead{font-size:18px;color:var(--muted);max-width:700px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.btn{display:inline-block;padding:11px 18px;border-radius:9px;background:var(--blue);color:#fff;text-decoration:none;font-weight:600}.btn.secondary{background:#eef3ff;color:var(--blue)}
-.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px;margin-top:20px}
-ul{padding-left:22px}li{margin:8px 0}.note{font-size:13px;color:var(--muted)}
-footer{margin-top:64px;background:#fff;border-top:1px solid var(--line)}.foot{max-width:1080px;margin:auto;padding:24px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:var(--muted);font-size:13px}.foot a{color:#475467;text-decoration:none;margin-left:16px}
-@media(max-width:650px){.nav{align-items:flex-start;flex-direction:column}main{margin:28px auto}.hero{padding:34px 24px}h1{font-size:34px}}
+:root{--navy:#14213d;--blue:#2457d6;--ink:#202938;--muted:#667085;--line:#e5eaf1;--bg:#f7f9fc;--pale:#eef3ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+a{color:var(--blue)}header{background:#fff;border-bottom:1px solid var(--line)}.nav{max-width:1100px;margin:auto;padding:17px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-size:22px;font-weight:800;color:var(--navy);text-decoration:none;letter-spacing:-.5px}.brand span{color:var(--blue)}
+nav{display:flex;gap:24px;flex-wrap:wrap}nav a{font-size:14px;font-weight:600;color:#475467;text-decoration:none}nav a:hover,nav a.active{color:var(--blue)}
+main{max-width:1100px;margin:48px auto;padding:0 24px}.hero{background:linear-gradient(135deg,#fff 0%,#f0f4ff 100%);border:1px solid var(--line);border-radius:22px;padding:62px 58px}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--blue)}
+h1{font-size:clamp(34px,5vw,50px);line-height:1.13;letter-spacing:-1.5px;color:var(--navy);margin:14px 0 18px}
+h2{font-size:23px;line-height:1.3;color:var(--navy);margin:0 0 12px}h3{font-size:17px;color:var(--navy);margin:0 0 7px}
+.lead{font-size:18px;line-height:1.7;color:var(--muted);max-width:760px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;padding:12px 19px;border-radius:10px;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;font-size:14px}.btn.secondary{background:#fff;color:var(--blue);border:1px solid #d5def5}
+.section{margin-top:26px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:20px}.tile{border:1px solid var(--line);border-radius:13px;padding:22px;background:#fff}.tile p{margin:0;color:var(--muted);font-size:14px}
+p{margin:10px 0;color:#475467}.muted{color:var(--muted)}ul{padding-left:22px;color:#475467}li{margin:7px 0}
+.callout{padding:17px 19px;background:var(--pale);border-left:4px solid var(--blue);border-radius:8px;color:#344054;margin-top:18px}
+.legal{background:#fff;border:1px solid var(--line);border-radius:16px;padding:38px}.legal h1{font-size:38px}.legal h2{font-size:20px;margin-top:30px}.legal p,.legal li{color:#475467}
+footer{margin-top:65px;background:#fff;border-top:1px solid var(--line)}.foot{max-width:1100px;margin:auto;padding:25px 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:13px}.foot a{color:#475467;text-decoration:none;margin-left:18px}
+@media(max-width:720px){.nav{align-items:flex-start;flex-direction:column;gap:12px}nav{gap:15px}.hero{padding:38px 25px}.grid{grid-template-columns:1fr}.legal{padding:25px 21px}main{margin:28px auto}}
 </style>
 </head>
 <body>
 <header><div class="nav">
-<a class="brand" href="index.html">Skartio<span> Test</span></a>
-<nav aria-label="Main navigation">
-<a href="index.html">Home</a>
-<a href="privacy.html">Privacy Policy</a>
-<a href="terms.html">Application Terms of Service</a>
-</nav></div></header>
+<a class="brand" href="index.html" aria-label="Skartio Test home">Skartio<span> Test</span></a>
+<nav aria-label="Main navigation"><a class="active" href="index.html">Home</a><a class="" href="privacy.html">Privacy Policy</a><a class="" href="terms.html">Application Terms of Service</a></nav>
+</div></header>
 <main>
 <section class="hero">
-<div class="eyebrow">Demo website · API testing</div>
-<h1>Welcome to Skartio Test</h1>
-<p class="lead">A demonstration website created for testing and validating Google Merchant APIs and related integrations.</p>
+<div class="eyebrow">Skartio · Merchant Center integration</div>
+<h1>Manage your product data with Skartio Test</h1>
+<p class="lead">Skartio Test is a demonstration application designed to connect the Skartio platform with Google Merchant Center. It helps authorized users test the transfer and management of product catalogue information through Google's Merchant APIs.</p>
 <div class="actions">
-<a class="btn" href="privacy.html">View Privacy Policy</a>
+<a class="btn" href="privacy.html">Read our Privacy Policy</a>
 <a class="btn secondary" href="terms.html">Application Terms of Service</a>
 </div>
 </section>
-<section class="panel">
-<h2>About this website</h2>
-<p>Skartio Test is a sample web presence used for development, integration, and API testing. This website does not represent a live online store and does not currently offer products for sale.</p>
-<h2>Testing purpose</h2>
-<p>Pages and links on this site are provided to support testing of website verification, account configuration, and policy URL requirements.</p>
-<p class="note">This is demonstration content. Replace it with your organization's approved business information and policies before using the site for production purposes.</p>
+
+<section class="section">
+<h2>What is Skartio Test?</h2>
+<p>Skartio Test is an integration utility for businesses and authorized administrators who want to test how product information managed in Skartio can be shared with Google Merchant Center. The application is intended for development, configuration, and integration validation.</p>
+<p>This website describes the application and its data practices. The website itself does not provide a public product marketplace or accept customer orders.</p>
+</section>
+
+<section class="section">
+<h2>What the application does</h2>
+<div class="grid">
+<div class="tile"><h3>Connect Merchant Center</h3><p>Allows an authorized user to connect a Google account and select or access the relevant Merchant Center account for the integration.</p></div>
+<div class="tile"><h3>Product catalogue integration</h3><p>Supports testing the transfer and synchronization of product information, such as product titles, descriptions, identifiers, prices, availability, and related catalogue attributes.</p></div>
+<div class="tile"><h3>Sync monitoring</h3><p>Helps authorized users validate integration activity and review the status of product data synchronization between Skartio and Google Merchant Center.</p></div>
+</div>
+</section>
+
+<section class="section">
+<h2>Why we request Google access</h2>
+<p>When an authorized user connects a Google account, Skartio Test requests the Google permissions needed to interact with the selected Merchant Center account. This access is used to perform the Merchant Center integration tasks initiated by that user, such as reading merchant account or product information and submitting product data for synchronization.</p>
+<p>We use Google data only to provide and operate the integration features described above. We do not use Google account data to build advertising profiles, sell personal information, or serve unrelated advertising.</p>
+<div class="callout"><strong>Access is user-authorized.</strong> The application can access Google Merchant Center information only after the account owner or an appropriately authorized user grants the requested permission.</div>
+</section>
+
+<section class="section">
+<h2>Who can use this application?</h2>
+<p>Skartio Test is intended for Skartio administrators, developers, and business users who are authorized to configure or test a Merchant Center integration. It is not intended as a consumer shopping application.</p>
+<h2>Privacy and terms</h2>
+<p>Read how information is handled in our <a href="privacy.html">Privacy Policy</a>. The conditions for using this application are described in the <a href="terms.html">Application Terms of Service</a>.</p>
 </section>
 </main>
-<footer><div class="foot"><span>© 2026 Skartio Test. Testing website.</span>
-<span><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></span></div></footer>
+<footer><div class="foot">
+<span>© 2026 Skartio Test. All rights reserved.</span>
+<span><a href="privacy.html">Privacy Policy</a><a href="terms.html">Application Terms of Service</a></span>
+</div></footer>
 </body></html>
